@@ -6,12 +6,15 @@ export function createTransport() {
   if (!env.SMTP_HOST || !env.SMTP_USER || !env.SMTP_PASS) {
     throw new Error('SMTP non configuré');
   }
-  return nodemailer.createTransport({
+  const transport = {
     host: env.SMTP_HOST,
     port: env.SMTP_PORT,
     secure: env.SMTP_SECURE,
-    auth: { user: env.SMTP_USER, pass: env.SMTP_PASS }
-  });
+    auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
+    connectionTimeout: 30000
+  };
+  console.log(transport);
+  return nodemailer.createTransport();
 }
 
 export async function sendAssignmentEmail(toEmail: string, toName: string, recipientName: string, recipientGiftIdea: string) {
