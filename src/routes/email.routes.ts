@@ -1,7 +1,7 @@
 
 import { Router } from 'express';
 import { prisma } from '../prisma';
-import { sendAssignmentEmail } from '../services/email.service';
+import { sendEmail } from '../services/email.service';
 import { z } from 'zod';
 
 const router = Router();
@@ -21,7 +21,7 @@ router.post('/send', async (req, res) => {
   const results: { giverEmail: string; ok: boolean; error?: string }[] = [];
   for (const a of assignments) {
     try {
-      await sendAssignmentEmail(a.giver.email, a.giver.fullName, a.recipient.fullName, a.recipient.giftIdea);
+      await sendEmail(a.giver.email, a.giver.fullName, a.recipient.fullName, a.recipient.giftIdea);
       results.push({ giverEmail: a.giver.email, ok: true });
     } catch (e) {
       results.push({ giverEmail: a.giver.email, ok: false, error: (e as Error).message });
