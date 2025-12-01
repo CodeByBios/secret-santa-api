@@ -25,4 +25,17 @@ router.get('/:id', async (req, res) => {
   res.json(data);
 });
 
+router.delete('/', async (req, res) => {
+  try {
+    await prisma.$transaction([
+      prisma.assignment.deleteMany(),
+      prisma.draw.deleteMany()
+    ]);
+
+    res.status(200).json({ message: 'Tables assignment et draw vidées avec succès.' });
+  } catch (e) {
+    res.status(400).json({ error: (e as Error).message });
+  }
+});
+
 export default router;
