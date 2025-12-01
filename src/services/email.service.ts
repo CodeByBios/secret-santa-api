@@ -13,8 +13,8 @@ export function createTransport() {
     auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
     connectionTimeout: 30000
   };
-  console.log(transport);
-  return nodemailer.createTransport();
+  console.log('SMTP config:', transport);
+  return nodemailer.createTransport(transport);
 }
 
 export async function sendAssignmentEmail(toEmail: string, toName: string, recipientName: string, recipientGiftIdea: string) {
