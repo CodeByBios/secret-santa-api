@@ -6,18 +6,36 @@ sgMail.setApiKey(env.SENDGRID_API_KEY);
 
 export async function sendEmail(toEmail: string, toName: string, recipientName: string, recipientGiftIdea: string) {
   try {
-    const subject = `🎄 Secret Santa`;
-    const text = `Bonjour ${toName},
+    const subject = `🎄 Secret Santa - Joyeuses fêtes !`;
+    const text = `
+    Bonjour ${toName},
 
-    Ton Secret Santa est: ${recipientName}
-    Idée cadeau: ${recipientGiftIdea}
+    Ton Secret Santa est : ${recipientName}
+    Idée cadeau : ${recipientGiftIdea}
 
-    Joyeuses fêtes !`;
+    🎁 Découvrez plus d'idées sur notre site : https://secret-santa-reveillon.ovh
 
-    const html = `<p>Bonjour <strong>${toName}</strong>,</p>
-    <p>Ton Secret Santa est: <strong>${recipientName}</strong></p>
-    <p>Idée cadeau: <em>${recipientGiftIdea}</em></p>
-    <p>Joyeuses fêtes ! 🎄</p>`;
+    Merci de participer à notre Secret Santa !
+    L'équipe Secret Santa
+    `;
+
+    const html = `
+    <div style="font-family: Arial, sans-serif; color:#333;">
+      <h2 style="color:#2c3e50;">🎄 Joyeux Secret Santa !</h2>
+      <p>Bonjour <strong>${toName}</strong>,</p>
+      <p>Ton Secret Santa est : <strong>${recipientName}</strong></p>
+      <p>Idée cadeau : <em>${recipientGiftIdea}</em></p>
+      <p style="margin-top:15px;">
+        🎁 <a href="https://www.amazon.fr">
+          Découvre plus d'idées cadeaux ici
+        </a>
+      </p>
+      <hr style="margin:20px 0;">
+      <p style="font-size:12px; color:#777;">
+        Merci de participer à notre Secret Santa.<br> © 2025 Secret Santa Réveillon 31/12/2025
+      </p>
+    </div>
+    `;
 
     const msg = {
       to: toEmail,
