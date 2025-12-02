@@ -13,7 +13,7 @@ export async function sendEmail(toEmail: string, toName: string, recipientName: 
     Ton Secret Santa est : ${recipientName}
     Idée cadeau : ${recipientGiftIdea}
 
-    🎁 Découvrez plus d'idées sur notre site : https://secret-santa-reveillon.ovh
+    🎁 Découvrez plus d'idées sur ce site : https://www.amazon.fr
 
     Merci de participer à notre Secret Santa !
     L'équipe Secret Santa
@@ -32,7 +32,9 @@ export async function sendEmail(toEmail: string, toName: string, recipientName: 
       </p>
       <hr style="margin:20px 0;">
       <p style="font-size:12px; color:#777;">
-        Merci de participer à notre Secret Santa.<br> © 2025 Secret Santa Réveillon 31/12/2025
+        Merci de participer à notre Secret Santa.<br>
+        Secret Santa Réveillon 31/12/2025 chez Boris et Dolores.<br>
+        © copyright Konoha
       </p>
     </div>
     `;
