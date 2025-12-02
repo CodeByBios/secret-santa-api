@@ -32,9 +32,7 @@ export async function sendEmail(toEmail: string, toName: string, recipientName: 
       </p>
       <hr style="margin:20px 0;">
       <p style="font-size:12px; color:#777;">
-        Merci de participer à notre Secret Santa.<br>
-        Secret Santa Réveillon 31/12/2025 chez Boris et Dolores.<br>
-        © copyright Konoha
+        Merci de participer à notre Secret Santa.<br> Secret Santa Réveillon 31/12/2025 chez Boris et Dolores.<br> © copyright Konoha
       </p>
     </div>
     `;
